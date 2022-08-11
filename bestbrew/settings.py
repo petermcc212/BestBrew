@@ -18,7 +18,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
-GOOGLE_MAPS_API_KEY = 'AIzaSyAiXxt2qrzyRI3BjmHaWW1yzcznnkS7TKY'
+GOOGLE_MAPS_API_KEY = '***'
 
 print("Media folder location" + MEDIA_DIR)
 print("static folder location" + STATIC_DIR)
@@ -28,7 +28,7 @@ print("static folder location" + STATIC_DIR)
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#c5zp6&-bl7u2w6n@1(7(3ivu5e%5c+s#2o6og+r^$dxh9@umr'
+SECRET_KEY = '**'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
