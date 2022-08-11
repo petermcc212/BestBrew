@@ -1,0 +1,35 @@
+{% extends 'bestbrew/base.html' %}
+{% load staticfiles %} 
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'nav/card.css' %}"/>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+{% block head %}
+<div class="page-header" align="center">
+   <h1><strong>Edit Profile</strong></h1>
+</div>
+{% endblock %}
+{% block body_block %}
+<!--USER IMAGE LOGO -->
+<div class="row">
+   <div class="col-sm-4 col-sm-offset-4">
+      <div class="panel-body text-center">
+         <h1><span class="glyphicon glyphicon-user"></span></h1>
+      </div>
+   </div>
+   <!--FORM -->
+   <div class="col-sm-4 col-sm-offset-4">
+      <form method="post" enctype="multipart/form-data">
+         {% csrf_token %}
+         {{ user_form|crispy }}
+         {{ profile_form|crispy }}
+         <!--BUTTON -->
+         <button type="submit" class="btn btn-lg btn-primary btn-block">Save</button>
+      </form>
+   </div>
+</div>
+{% endblock %}

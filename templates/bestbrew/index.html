@@ -1,0 +1,250 @@
+{% extends 'bestbrew/base.html' %}
+{% load staticfiles %} <!-- New line -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% static 'nav/style.css' %}"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="{% static "js/indexjavascript.js" %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Page Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+      <script src="main.js"></script>
+      {% block title_block %}
+      Index
+      {% endblock %}
+   </head>
+   <body>
+      {% block body_block %}
+      <!-- WELCOME USER AND LOGO -->
+      {% if user.is_authenticated %}
+      <div class="header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+         <img src="{% static "images/logo.png" %}" alt="My image" width="350" height="300">
+         <h1 class="welcome">Welcome {{ user.get_username }}</h1>
+      </div>
+      {% else %}
+      <div class="header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+         <img src="{% static "images/logo.png" %}" alt="My image" width="350" height="300">
+      </div>
+      {% endif %}
+      <img src="{% static "images/welcome_image.png" %}" alt="Welcome_image" width=100% height="236"> 
+      <div id="Search_">
+         <!-- Search bar-->
+         <form class="navbar-form navbar-center" role="search" method="post" action="{% url 'suggest' %}">
+         {% csrf_token %}
+         <div class="form-group">
+            <input type="text" size="65" placeholder="Search our site"  class="form-control" name="suggestion" value="" id="suggestion"/>
+         </div>
+         <br>
+         <div>
+            <h3>Find your new favorite shop, brand or bean</h3>
+         </div>
+      </div>
+      </div>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="container-fluid">
+      <div class="row">
+      <div class="col-md-12">
+         <div class="row">
+            <div class="col-md-4">
+               <!-- FIRST ROW HERE-->
+               <div class="card">
+                  <button type="button"><img src="{% static "images/personal.jpg" %}" alt=" Personal"
+                  data-toggle="modal" data-target="#personal" style="width:100%"></button>
+                  <div class="container">
+                     <h4><b>Shops you've visited</b></h4>
+                     <p>Click here to view recent check-ins</p>
+                  </div>
+               </div>
+                
+            </div>
+            <div class="col-md-4">
+               <div class="card">
+                  <button type = "button" ><img src="{% static "images/trending.jpg" %}"" alt="Trending" 
+                  data-toggle="modal" data-target="#trending" style="width:100%"></button>
+                  <div class="container">
+                     <h4><b>Trending</b></h4>
+                     <p>See what's trending in Glasgow</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="card">
+                  <button type = "button" ><img src="{% static "images/review.jpg" %}"" alt="Blog" 
+                  data-toggle="modal" data-target="#blogpage" style="width:100%"></button>
+                  <div class="container">
+                     <h4><b>Reviews</b></h4>
+                     <p>View recent reviews left by fellow users</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="modal fade" id="personal" role="dialog">
+            <div class="modal-dialogz">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Shops you've visited</h4>
+                  </div>
+                  <div class="modal-body">
+                     <div class="carousel-inner">
+                        <div class="item active">
+                           <div class="row">
+                              <div style="padding:10px">
+                                 {% for visit in visits %}
+                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="card text-center">
+                                       <img class="card-img-top" src="{{visit.coffee_shop.image.url}}" alt=""
+                                          width="100%" height="200">
+                                       <div class="card-block">
+                                          <h4 class="card-title">{{visit.coffee_shop.name}}</h4>
+                                          <p class="card-text">{{visit.coffee_shop.address}}</p>
+                                          <a class="btn btn-default"
+                                             href="{% url 'coffee_shop' %}?shop_id={{visit.coffee_shop.id}}&action=cur">Read More</a>
+                                          <br>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="modal fade" id="trending" role="dialog">
+            <div class="modal-dialogz">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Trending Shops</h4>
+                  </div>
+                  <div class="modal-body">
+                     <div class="carousel-inner">
+                        <div class="item active">
+                           <div class="row">
+                              <div style="padding:10px">
+                                 {% for trending in trending %}
+                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="card text-center">
+                                       <img class="card-img-top" src="{{trending.coffee_shop.image.url}}" alt=""
+                                          width="100%" height="200">
+                                       <div class="card-block">
+                                          <h4 class="card-title">{{trending.coffee_shop.name}}</h4>
+                                          <p class="card-text">{{trending.coffee_shop.address}}</p>
+                                          <a class="btn btn-default"
+                                             href="{% url 'coffee_shop' %}?shop_id={{trending.coffee_shop.id}}&action=cur">Read More</a>
+                                          <br>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="modal fade" id="blogpage" role="dialog">
+            <div class="modal-dialogz">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Recent Reviews</h4>
+                  </div>
+                  <div class="modal-body">
+                     <div class="carousel-inner">
+                        <div class="item active">
+                           <div class="row">
+                              <div style="padding:10px">
+                                 {% for blog in blogs %}
+                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <div class="card text-center">
+                                       <img class="card-img-top" src="{{blog.coffee_shop.image.url}}" alt=""
+                                          width="100%" height="200">
+                                       <div class="card-block">
+                                          <h4 class="card-title">{{blog.coffee_shop.name}}</h4>
+                                          <p class="card-text">{{blog.coffee_shop.address}}</p>
+                                          <a class="btn btn-default"
+                                             href="{% url 'coffee_shop' %}?shop_id={{blog.coffee_shop.id}}&action=cur">Read More</a>
+                                          <br>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 {% endfor %}
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% else %}
+      <div>
+      </div>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="row">
+                  <div class="col-md-4">
+                     <!-- FIRST ROW HERE-->
+                     <div class="card">
+                        <a href="{% url 'trending' %}"><img src="{% static "images/trending.png" %}"" alt="Welcome_image" style="width:100%"></a>
+                        <div class="container">
+                           <h4><b>Trending</b></h4>
+                           <p>Click here to browse our blogs</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="card">
+                        <a href="{% url 'browse' %}"><img src="{% static "images/recommended.png" %}"" alt="Welcome_image" style="width:100%"></a>
+                        <div class="container">
+                           <h4><b>Browse</b></h4>
+                           <p>Unsure where to go? Take a look at shops available!</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="card">
+                        <a href="{% url 'blog/view' %}"><img src="{% static "images/blog.png" %}" alt="Blog_image" style="width:100%"></a>
+                        <div class="container">
+                           <h4><b>Our Blog</b></h4>
+                           <p>A coffee enthusiasts paradise</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% endif %}
+      {% endblock %}
+   </body>
+</html>

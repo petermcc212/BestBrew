@@ -1,0 +1,80 @@
+{% extends 'bestbrew/base.html' %}
+{% load staticfiles %} <!-- New line -->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+!<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Page Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+      <script src="main.js"></script>
+   </head>
+   <body>
+      {% block body_block %}
+      <div class="container">
+      <div class="row">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+               <h4 >User Profile</h4>
+            </div>
+            <div class="panel-body">
+               <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                  <img alt="User Pic" src="{{ user.userprofile.image.url }}" alt= "https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+               </div>
+               <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+                  <div class="container" >
+                     <h2>{{ user  }}</h2>
+                  </div>
+                  <hr>
+                  <ul class="container details" >
+                     <li>
+                        <p><span class="glyphicon glyphicon-minus" style="width:50px;"></span>{{ user.first_name }}</p>
+                     </li>
+                     <li>
+                        <p><span class="glyphicon glyphicon-minus" style="width:50px;"></span>{{ user.last_name }}</p>
+                     </li>
+                     <li>
+                        <p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{ user.email }}</p>
+                     </li>
+                     <li>
+                        <p><span class="glyphicon glyphicon-globe" style="width:50px;"></span>{{ user.userprofile.website }}</p>
+                     </li>
+                     <li>
+                        <p><span class="glyphicon glyphicon-asterisk" style="width:50px;"></span>{{ user.userprofile.city }}</p>
+                     </li>
+                     <li>
+                        <p><span class="glyphicon glyphicon-phone-alt" style="width:50px;"></span>{{ user.userprofile.phone }}</p>
+                     </li>
+                  </ul>
+                  <hr>
+                  <div class="col-sm-5 col-xs-6 tital " >Description: </div>
+                  <div class="col-sm-5 col-xs-6 tital " >{{ user.userprofile.description }} </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <a class="btn btn-default" href="{% url 'edit_profile' %}" aria-label="Left Align">
+      <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+      Update profile
+      </a>    
+      <a class="btn btn-default" href="{% url 'change_password' %}" aria-label="Left Align">
+      <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+      Change password
+      </a> 
+      {% if user.is_superuser %}
+      <a class="btn btn-default" href="{% url 'coffeeShop_create_view' %}" aria-label="Left Align">
+      <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+      Admin: Add a coffee shop
+      </a> 
+      <a class="btn btn-default" href="{% url 'create_blog' %}" aria-label="Left Align">
+      <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+      Admin: Add a blog
+      </a> 
+      {% endif %}
+   </body>
+   {% endblock %}
+</html>

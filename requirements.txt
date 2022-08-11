@@ -1,0 +1,8 @@
+-f /usr/share/pip-wheels
+Django==1.11.17
+django-crispy-forms==1.7.2
+django-mathfilters==0.4.0
+geographiclib==1.49
+geopy==1.18.1
+Pillow==6.2.0
+pytz==2018.9

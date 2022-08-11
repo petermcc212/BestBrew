@@ -1,0 +1,63 @@
+{% extends 'bestbrew/base.html' %}
+{% load staticfiles %}
+<html lang="en">
+   <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+      <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{% static 'nav/blog.css' %}"/>
+    </head>
+   <body>
+      {% block body_block %}
+      <section>
+         <div class="container" >
+            <div class="page-header" align="center">
+               <h1>
+                  <strong>
+                     Trending
+               </h1>
+               <h2><span class="glyphicon glyphicon-thumbs-up"></span></strong>
+               <p>
+               <h5>Here you'll find all the coffee shops that are trending in Glasgow </p><br></h5>
+            </div>
+         </div>
+         <!-- Carousel items -->
+         <div class="container" >
+         <div class="carousel-inner">
+            <div class="item active">
+               <div class="row">
+                  <div style="padding:10px">
+                     {% for blog in blogs %}
+                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="card text-center">
+                           <img class="card-img-top hoverable" src="{{blog.coffee_shop.image.url}}" alt="" width="100%" height="220">
+                           <div class="card-block">
+                             <h4 class="card-title">{{blog.coffee_shop.name}}</h4>
+                              <p class="card-text"><span class="badge badge-pill badge-primary"> {{blog.rating}}<span class="glyphicon glyphicon-star-empty"></span></span></p>
+                              <p class="card-text">{{blog.coffee_shop.address}}</p>
+                              <a class="btn btn-primary" href="{% url 'coffee_shop' %}?shop_id={{blog.coffee_shop.id}}&action=cur">Read More</a>
+                              <p> </p>
+                           </div>
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      {% endblock %}
+   </body>
+</html>

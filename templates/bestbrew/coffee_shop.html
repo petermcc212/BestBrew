@@ -1,0 +1,368 @@
+{% extends 'bestbrew/base.html' %}
+{% load staticfiles %}
+{% load mathfilters %}
+{% load rango_template_tags %}
+
+<html lang="en">
+   <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="{% static 'nav/coffee_shop.css' %}"/>
+      <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+      <link href="css/navbar-fixed-top.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+
+      {% block body_block %}
+      <!--LINKS TO NEXT AND PREVIOUS COFFEE SHOPS -->
+      <ul class="pager">
+         <li><a href="{% url 'coffee_shop' %}?shop_id={{coffee_shop_obj.id}}&action=prev">Previous</a></li>
+         <li><a href="{% url 'coffee_shop' %}?shop_id={{coffee_shop_obj.id}}&action=next">Next</a></li>
+      </ul>
+      <!-- COFFEE SHOP NAME HEADER -->
+      <div class="page-header" align="center">
+         <h1><strong>{{coffee_shop_obj.name}}</strong></h1>
+      </div>
+      <div class="container">
+      <div class="row">
+      <div class="col-xs-6">
+         <img class="pull-right img-rounded" src = "{{ coffee_shop_obj.image.url }}" alt = "Coffee Shop Picture" width="400" height="300">
+      </div>
+      <!-- LOCATION AND CONTACT BOX -->
+      <div class="row">
+         <div class="col-xs-4">
+            <div class="panel panel-primary">
+               <div class="panel-heading" align="center">
+                  <h4>Location and Contact</h4>
+               </div>
+               <div class="panel-body">
+                  <p>
+                  <h5>We are located at:</h5>
+                  </p>
+                  {{coffee_shop_obj.address}},<br>
+                  <p>{{coffee_shop_obj.postcode}}
+                  <p>
+                     {{coffee_shop_obj.phone}}
+                  <div id="map" style="height:200px;width:335px;">
+                     <script src="https://maps.googleapis.com/maps/api/js?key={{mapbox_access_token}}&v=3"></script>
+                     <script>
+                        function initialize() {
+                            var map = new google.maps.Map(document.getElementById('map'));
+                            var bounds = new google.maps.LatLngBounds();
+                        
+                            function addMarker(lat, lng, title) {
+                                var position = new google.maps.LatLng(lat, lng);
+                                var marker = new google.maps.Marker({
+                                    position: position,
+                                    map: map,
+                                    title: title
+                                });
+                                bounds.extend(position);
+                            }
+                                addMarker({{ coffee_shop_obj.latitude }}, {{ coffee_shop_obj.longtitude }}, "{{ coffee_shop_obj.name }}");
+                        
+                        
+                            map.fitBounds(bounds);
+                        }
+                        
+                        google.maps.event.addDomListener(window, 'load', initialize);
+                     </script>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- AVAILABLE COFFEE TYPES -->
+      <div class="container">
+      <div class="row">
+      <div class="col-sm-6" align="right">
+         <h3><strong>Available Coffee Types</strong></h3>
+         <table>
+            {% for coffee_type in coffee_types %}
+            <tr>
+               <td>{{coffee_type.type}}</td>
+               <td><img src= "{{coffee_type.image.url}}" class="img-rounded" width="50" height="50" /></td>
+            </tr>
+            {% endfor %}
+         </table>
+      </div>
+      <!-- RATINGS BREAKDOWN BOX -->
+      <div class="container">
+      <div class="row">
+      <div class="col-xs-4" align="left">
+         <div class="panel-group">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <h4>{{coffee_shop_obj.name}} Rating Breakdown</h4>
+               </div>
+               <div class="panel-body">
+                  <div class="pull-left">
+                     <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">5 <i class="fas fa-coffee"></i></div>
+                     </div>
+                     <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ratingCount|get_value_from_dict:'five_star'}}" aria-valuemin="0" aria-valuemax="{{total_blogs}}" style="width: {{ratingPercent|get_value_from_dict:'five_star'}}%">
+                              <span class="sr-only">80% Complete (danger)</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pull-right" style="margin-left:10px;">{{ratingCount|get_value_from_dict:'five_star'}}</div>
+                  </div>
+                  <div class="pull-left">
+                     <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">4 <i class="fas fa-coffee"></i></div>
+                     </div>
+                     <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                           <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="{{ratingCount|get_value_from_dict:'four_star'}}" aria-valuemin="0" aria-valuemax="{{total_blogs}}" style="width: {{ratingPercent|get_value_from_dict:'four_star'}}%">
+                              <span class="sr-only">80% Complete (danger)</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pull-right" style="margin-left:10px;">{{ratingCount|get_value_from_dict:'four_star'}}</div>
+                  </div>
+                  <div class="pull-left">
+                     <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">3 <i class="fas fa-coffee"></i></div>
+                     </div>
+                     <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                           <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{ratingCount|get_value_from_dict:'three_star'}}" aria-valuemin="0" aria-valuemax="5" style="width: {{ratingPercent|get_value_from_dict:'three_star'}}%">
+                              <span class="sr-only">80% Complete (danger)</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pull-right" style="margin-left:10px;">{{ratingCount|get_value_from_dict:'three_star'}}</div>
+                  </div>
+                  <div class="pull-left">
+                     <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">2 <i class="fas fa-coffee"></i></div>
+                     </div>
+                     <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                           <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{ratingCount|get_value_from_dict:'two_star'}}" aria-valuemin="0" aria-valuemax="5" style="width: {{ratingPercent|get_value_from_dict:'two_star'}}%">
+                              <span class="sr-only">80% Complete (danger)</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pull-right" style="margin-left:10px;">{{ratingCount|get_value_from_dict:'two_star'}}</div>
+                  </div>
+                  <div class="pull-left">
+                     <div class="pull-left" style="width:35px; line-height:1;">
+                        <div style="height:9px; margin:5px 0;">1 <i class="fas fa-coffee"></i></div>
+                     </div>
+                     <div class="pull-left" style="width:180px;">
+                        <div class="progress" style="height:9px; margin:8px 0;">
+                           <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="{{ratingCount|get_value_from_dict:'one_star'}}" aria-valuemax="5" style="width: {{ratingPercent|get_value_from_dict:'one_star'}}%">
+                              <span class="sr-only">80% Complete (danger)</span>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="pull-right" style="margin-left:10px;">{{ratingCount|get_value_from_dict:'one_star'}}</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- USER RATING AVERAGE BOX -->
+      <div class="container">
+      <div class="col-xs-3" align="left">
+         <div class="panel-group">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <h4>Average user rating</h4>
+               </div>
+               <div class="panel-body">
+                  <div class="rating-block">
+                     <h2 class="bold padding-bottom-7">{{avg_rating}} <small>/ 5</small></h2>
+                     {% if avg_rating > 0 %}
+                     {% for i in "x"|ljust:avg_rating %}
+                     <button type="button" class="btn btn-warning btn-sm" aria-label="Left Align">
+                     <i class="fas fa-coffee" aria-hidden="true"></i>
+                     </button>
+                     {% endfor  %}
+                     {% endif %}
+                     {% with 5|sub:avg_rating as negativeRating %}
+                     {% if negativeRating > 0 %}
+                     {% for i in "x"|ljust:negativeRating %}
+                     <button type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align">
+                     <i class="fas fa-coffee" aria-hidden="true"></i>
+                     </button>
+                     {% endfor  %}
+                     {% endif %}
+                     {% endwith %}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="container">
+      <div class="row">
+      <div class="col-sm-6">
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+         Leave a review
+         </button>
+         <!-- THE POP UP REVIEW BOX -->
+         <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <!-- POP UP HEADER -->
+                  <div class="modal-header">
+                     <h3 class="modal-title">Let us know what you think...</h3>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <form  action="{% url 'create_review' %}" method="post" >
+                     {% csrf_token %}
+                     <input type="hidden" id="latitudeId" />
+                     <input type="hidden" id="longtitudeId" />
+                     <input type="hidden" id="rating" name="rating" value="4"/>
+                     <input type="hidden" name="coffeeShopId" value="{{coffee_shop_obj.id}}"/>
+                     <!-- REVIEW BODY POP UP -->
+                     <div class="modal-body">
+                        <h4>Please provide a 'Coffee' Rating:</h4>
+                        <h6><i>(1 being poor and 5 being excellent)</h6>
+                        </i>
+                        <h3>
+                           <!-- STAR/COFFEE RATING BUTTONS-->
+                           <button type="button" id="coffee1" class="btn btn-default btn-grey btn-xs" onclick="add(this,1)" aria-label="Left Align">
+                           <i class="fas fa-coffee" aria-hidden="true"></i>
+                           </button>
+                           <button type="button" id="coffee2" class="btn btn-default btn-grey btn-xs" onclick="add(this,2)" aria-label="Left Align">
+                           <i class="fas fa-coffee" aria-hidden="true"></i>
+                           </button>
+                           <button type="button" id="coffee3" class="btn btn-default btn-grey btn-xs" onclick="add(this,3)" aria-label="Left Align">
+                           <i class="fas fa-coffee" aria-hidden="true"></i>
+                           </button>
+                           <button type="button" id="coffee4" class="btn btn-default btn-grey btn-xs" onclick="add(this,4)" aria-label="Left Align">
+                           <i class="fas fa-coffee" aria-hidden="true"></i>
+                           </button>
+                           <button type="button" id="coffee5" class="btn btn-default btn-grey btn-xs" onclick="add(this,5)" aria-label="Left Align">
+                           <i class="fas fa-coffee" aria-hidden="true"></i>
+                           </button>
+                        </h3>
+                        <textarea class="form-control animated" cols="50" id="content" name="content" placeholder="Enter your review here..." rows="6">
+            </textarea>
+                        <script>
+                           function add(ths,sno){
+                           document.getElementById("rating").value = sno;
+                           for (var i=1;i<=5;i++){
+                           var cur=document.getElementById("coffee"+i)
+                           cur.className="btn btn-default btn-grey btn-xs"
+                           }
+                           
+                           for (var i=1;i<=sno;i++){
+                           var cur=document.getElementById("coffee"+i)
+                           if(cur.className=="btn btn-default btn-grey btn-xs")
+                           {
+                           cur.className="btn btn-warning btn-xs"
+                           }
+                           }
+                           
+                           }
+                        </script>
+                     </div>
+                     <!-- Modal footer -->
+                     <div class="modal-footer">
+                        <h5>Enter your Postcode: <input type="text" name="postcode" /></h5>
+                        <button type="submitbutton" class="btn btn-success" >Submit</button>
+                        <button type="cancelbutton" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% endif %}
+      <!-- REVIEWS -->
+      <div class="container">
+      <div class="row">
+         <div class="col-sm-6">
+            <hr/>
+            <div class="review-block">
+               {% for blog in blogs %}
+               <div class="row">
+                  <div class="col-sm-3">
+                     <img src="{{ blog.user_profile_image.url }}" class="img-circle" width="90px" height="70px">
+                     <div class="review-block-name"><a href="#">{{blog.user}}</a></div>
+                     <div class="review-block-date">{{ blog.date|timesince }} ago</div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="review-block-rate">
+                        {% for i in "x"|ljust:blog.rating %}
+                        <button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+                        <i class="fas fa-coffee" aria-hidden="true"></i>
+                        </button>
+                        {% endfor  %}
+                        {% with 5|sub:blog.rating as negativeRating %}
+                        {% if negativeRating > 0 %}
+                        {% for i in "x"|ljust:negativeRating %}
+                        <button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+                        <i class="fas fa-coffee" aria-hidden="true"></i>
+                        </button>
+                        {% endfor  %}
+                        {% endif %}
+                        {% endwith %}
+                     </div>
+                     <div class="review-block-description">{{blog.content}}</div>
+                  </div>
+               </div>
+               <hr/>
+               {% endfor %}
+            </div>
+         </div>
+         <!-- REVIEW LOCATIONS -->
+         <div class="row" style="padding-left:300px">
+            <div class="col-xs-6" >
+               <div class="panel panel-primary">
+                  <div class="panel-heading" align="center">
+                     <h4>User Reviews Location </h4>
+                  </div>
+                  <div class="panel-body">
+                     <div id="mapUser" style="height:200px;width:335px;">
+                        <script src="https://maps.googleapis.com/maps/api/js?key={{mapbox_access_token}}&v=3"></script>
+                        <script>
+                           function init() {
+                               var map = new google.maps.Map(document.getElementById('mapUser'));
+                               var bounds = new google.maps.LatLngBounds();
+                           
+                               function addMarker(lat, lng, title) {
+                                   var position = new google.maps.LatLng(lat, lng);
+                                   var marker = new google.maps.Marker({
+                                       position: position,
+                                       map: map,
+                                       title: title
+                                   });
+                                   bounds.extend(position);
+                               }
+                               {% for blog in blogs %}
+                                   {% if blog.latitude is not None %}
+                                   addMarker({{ blog.latitude }}, {{ blog.longtitude }}, "{{ blog.user }}");
+                                   {% endif %}
+                               {% endfor %}
+                           
+                           
+                               map.fitBounds(bounds);
+                           }
+                           
+                           google.maps.event.addDomListener(window, 'load', init);
+                        </script>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% endblock %}
+   </body>
+</html>

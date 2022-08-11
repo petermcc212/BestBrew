@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Coffee shop</title>
+<style id="applicationStylesheet" type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	:root {
+		--web-view-ids: Coffee_shop;
+	}
+	#Coffee_shop * {
+		margin: 0;
+		padding: 0;
+	}
+	#Coffee_shop {
+		position: absolute;
+		box-sizing: border-box;
+		background: #E5E5E5;
+		width: 1920px;
+		height: 1080px;
+		background-color: rgba(255,255,255,1);
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		opacity: 1;
+		--web-view-name: Coffee shop;
+		--web-view-id: Coffee_shop;
+		--web-enable-deep-linking: true;
+	}
+	#Group_7 {
+		opacity: 1;
+		position: absolute;
+		width: 1920.5px;
+		height: 70px;
+		left: 0px;
+		top: -9px;
+		overflow: visible;
+	}
+	#Base {
+		opacity: 0.61;
+		fill: rgba(18,59,95,1);
+	}
+	.Base {
+		position: absolute;
+		overflow: visible;
+		width: 1920.5px;
+		height: 70px;
+		left: 0px;
+		top: 0px;
+	}
+	#Menu {
+		opacity: 1;
+		fill: rgba(255,255,255,1);
+	}
+	.Menu {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 16px;
+		left: 16px;
+		width: 34.573px;
+		height: 25px;
+	}
+	#Group_6 {
+		opacity: 1;
+		position: absolute;
+		width: 1913px;
+		height: 70px;
+		left: -36px;
+		top: 1016px;
+		overflow: visible;
+	}
+	#Base_A4_Rectangle_2 {
+		opacity: 1;
+		fill: rgba(241,249,255,1);
+	}
+	.Base_A4_Rectangle_2 {
+		position: absolute;
+		overflow: visible;
+		width: 1913px;
+		height: 70px;
+		left: 0px;
+		top: 0px;
+	}
+	#Group_5 {
+		opacity: 1;
+		position: absolute;
+		width: 180.014px;
+		height: 40.445px;
+		left: 870px;
+		top: 15px;
+		overflow: visible;
+	}
+	#Instagram {
+		opacity: 1;
+		position: absolute;
+		width: 40.445px;
+		height: 40.445px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#Path_3 {
+		opacity: 1;
+		fill: rgba(38,153,251,1);
+	}
+	.Path_3 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 40.445px;
+		height: 40.445px;
+	}
+	#Facebook {
+		opacity: 1;
+		position: absolute;
+		width: 13.014px;
+		height: 24.92px;
+		left: 167px;
+		top: 7px;
+		overflow: visible;
+	}
+	#Path_1 {
+		opacity: 1;
+		fill: rgba(38,153,251,1);
+	}
+	.Path_1 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 13.014px;
+		height: 24.92px;
+	}
+	#Twitter {
+		opacity: 1;
+		position: absolute;
+		width: 31.721px;
+		height: 25.729px;
+		left: 61px;
+		top: 7px;
+		overflow: visible;
+	}
+	#Path_2 {
+		opacity: 1;
+		fill: rgba(38,153,251,1);
+	}
+	.Path_2 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 31.721px;
+		height: 25.729px;
+	}
+	#Web {
+		opacity: 1;
+		position: absolute;
+		width: 33.445px;
+		height: 33.445px;
+		left: 113px;
+		top: 3px;
+		overflow: visible;
+	}
+	#Path_4 {
+		opacity: 1;
+		fill: rgba(38,153,251,1);
+	}
+	.Path_4 {
+		transform: matrix(1,0,0,1,0,0);
+		overflow: visible;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 33.445px;
+		height: 33.445px;
+	}
+	#Braw_Brew {
+		opacity: 1;
+		position: absolute;
+		left: 309px;
+		top: 206px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		overflow: visible;
+		width: 243px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Georgia;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 50px;
+		color: rgba(18,59,95,1);
+	}
+	#Video {
+		opacity: 1;
+		fill: url(#Video_A4_Rectangle_4_pattern);
+	}
+	.Video {
+		position: absolute;
+		overflow: visible;
+		width: 690px;
+		height: 620.215px;
+		left: 76.095px;
+		top: 292px;
+	}
+	#Gave_me_the_shakes__ {
+		opacity: 1;
+		position: absolute;
+		left: 864px;
+		top: 574.942px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		width: 403px;
+		height: 65px;
+		line-height: 50px;
+		margin-top: -5px;
+		text-align: left;
+		font-family: Georgia;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 40px;
+		color: rgba(18,59,95,1);
+	}
+	#Textbox_Filled {
+		opacity: 1;
+		position: absolute;
+		width: 717.849px;
+		height: 332.451px;
+		left: 864px;
+		top: 655px;
+		overflow: visible;
+	}
+	#Rectangle_681 {
+		opacity: 1;
+		fill: rgba(255,255,255,1);
+		stroke: rgb(18, 59, 95);
+		stroke-width: 3px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_681 {
+		position: absolute;
+		overflow: visible;
+		width: 717.849px;
+		height: 332.451px;
+		left: 0px;
+		top: 0px;
+	}
+	#I_lost_my_job_because_of_this_ {
+		opacity: 1;
+		position: absolute;
+		left: 899px;
+		top: 691.942px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		width: 570px;
+		height: 278px;
+		line-height: 30px;
+		margin-top: -2.5px;
+		text-align: left;
+		font-family: Georgia;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		color: rgba(18,59,95,1);
+	}
+	#Overall_rating {
+		opacity: 1;
+		position: absolute;
+		left: 1168px;
+		top: 224px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		overflow: visible;
+		width: 251px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Georgia;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 35px;
+		color: rgba(18,59,95,1);
+	}
+	#aromatic_bean_brown_669164 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_7_pattern);
+	}
+	.aromatic_bean_brown_669164 {
+		position: absolute;
+		overflow: visible;
+		width: 156.792px;
+		height: 149.209px;
+		left: 1420.104px;
+		top: 162.896px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#Backward_arrow {
+		opacity: 1;
+		position: absolute;
+		width: 52.5px;
+		height: 52.5px;
+		left: -15.5px;
+		top: 107.5px;
+		overflow: visible;
+	}
+	#Path_10 {
+		opacity: 1;
+		fill: rgba(18,59,95,1);
+	}
+	.Path_10 {
+		transform: rotate(180deg);
+		overflow: visible;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 52.5px;
+		height: 52.5px;
+	}
+	#Results {
+		opacity: 1;
+		position: absolute;
+		left: 52px;
+		top: 114px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		overflow: visible;
+		width: 115px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Georgia;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 35px;
+		color: rgba(18,59,95,1);
+	}
+	#Textbox_Filled_A4_Group_10 {
+		opacity: 1;
+		position: absolute;
+		width: 485.396px;
+		height: 224.797px;
+		left: 1298.453px;
+		top: 292px;
+		overflow: visible;
+	}
+	#Rectangle_681_A4_Rectangle_8 {
+		opacity: 1;
+		fill: rgba(255,255,255,1);
+		stroke: rgb(18, 59, 95);
+		stroke-width: 3px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_681_A4_Rectangle_8 {
+		position: absolute;
+		overflow: visible;
+		width: 485.396px;
+		height: 224.797px;
+		left: 0px;
+		top: 0px;
+	}
+	#Coffee_Quality_Price_Atmospher {
+		opacity: 1;
+		position: absolute;
+		left: 1313px;
+		top: 329.942px;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		width: 483px;
+		height: 225px;
+		line-height: 50px;
+		margin-top: -10px;
+		text-align: left;
+		font-family: Georgia;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(18,59,95,1);
+	}
+	#aromatic_bean_brown_669164_A4_SymbolInstance_1 {
+		opacity: 1;
+		position: absolute;
+		width: 112.244px;
+		height: 106.729px;
+		left: 1485.26px;
+		top: 291.896px;
+		overflow: visible;
+	}
+	#aromatic_bean_brown_669164_A4_Rectangle_9 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_10_pattern);
+	}
+	.aromatic_bean_brown_669164_A4_Rectangle_9 {
+		position: absolute;
+		overflow: visible;
+		width: 112.244px;
+		height: 106.729px;
+		left: 0px;
+		top: 0px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#aromatic_bean_brown_669164_A4_SymbolInstance_2 {
+		opacity: 1;
+		position: absolute;
+		width: 112.244px;
+		height: 106.729px;
+		left: 1530.26px;
+		top: 341.896px;
+		overflow: visible;
+	}
+	#aromatic_bean_brown_669164_A4_Rectangle_11 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_12_pattern);
+	}
+	.aromatic_bean_brown_669164_A4_Rectangle_11 {
+		position: absolute;
+		overflow: visible;
+		width: 112.244px;
+		height: 106.729px;
+		left: 0px;
+		top: 0px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#aromatic_bean_brown_669164_A4_SymbolInstance_3 {
+		opacity: 1;
+		position: absolute;
+		width: 112.244px;
+		height: 106.729px;
+		left: 1485.26px;
+		top: 341.896px;
+		overflow: visible;
+	}
+	#aromatic_bean_brown_669164_A4_Rectangle_13 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_14_pattern);
+	}
+	.aromatic_bean_brown_669164_A4_Rectangle_13 {
+		position: absolute;
+		overflow: visible;
+		width: 112.244px;
+		height: 106.729px;
+		left: 0px;
+		top: 0px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#aromatic_bean_brown_669164_A4_SymbolInstance_4 {
+		opacity: 1;
+		position: absolute;
+		width: 112.244px;
+		height: 106.729px;
+		left: 1571.26px;
+		top: 341.896px;
+		overflow: visible;
+	}
+	#aromatic_bean_brown_669164_A4_Rectangle_15 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_16_pattern);
+	}
+	.aromatic_bean_brown_669164_A4_Rectangle_15 {
+		position: absolute;
+		overflow: visible;
+		width: 112.244px;
+		height: 106.729px;
+		left: 0px;
+		top: 0px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#aromatic_bean_brown_669164_A4_SymbolInstance_5 {
+		opacity: 1;
+		position: absolute;
+		width: 112.244px;
+		height: 106.729px;
+		left: 1479.26px;
+		top: 400.896px;
+		overflow: visible;
+	}
+	#aromatic_bean_brown_669164_A4_Rectangle_17 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_18_pattern);
+	}
+	.aromatic_bean_brown_669164_A4_Rectangle_17 {
+		position: absolute;
+		overflow: visible;
+		width: 112.244px;
+		height: 106.729px;
+		left: 0px;
+		top: 0px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#aromatic_bean_brown_669164_A4_SymbolInstance_6 {
+		opacity: 1;
+		position: absolute;
+		width: 112.244px;
+		height: 106.729px;
+		left: 1528.26px;
+		top: 400.896px;
+		overflow: visible;
+	}
+	#aromatic_bean_brown_669164_A4_Rectangle_19 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_20_pattern);
+	}
+	.aromatic_bean_brown_669164_A4_Rectangle_19 {
+		position: absolute;
+		overflow: visible;
+		width: 112.244px;
+		height: 106.729px;
+		left: 0px;
+		top: 0px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#aromatic_bean_brown_669164_A4_SymbolInstance_7 {
+		opacity: 1;
+		position: absolute;
+		width: 112.244px;
+		height: 106.729px;
+		left: 1571.26px;
+		top: 400.896px;
+		overflow: visible;
+	}
+	#aromatic_bean_brown_669164_A4_Rectangle_21 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_22_pattern);
+	}
+	.aromatic_bean_brown_669164_A4_Rectangle_21 {
+		position: absolute;
+		overflow: visible;
+		width: 112.244px;
+		height: 106.729px;
+		left: 0px;
+		top: 0px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#aromatic_bean_brown_669164_A4_SymbolInstance_8 {
+		opacity: 1;
+		position: absolute;
+		width: 112.244px;
+		height: 106.729px;
+		left: 1614.26px;
+		top: 400.896px;
+		overflow: visible;
+	}
+	#aromatic_bean_brown_669164_A4_Rectangle_23 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_24_pattern);
+	}
+	.aromatic_bean_brown_669164_A4_Rectangle_23 {
+		position: absolute;
+		overflow: visible;
+		width: 112.244px;
+		height: 106.729px;
+		left: 0px;
+		top: 0px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#aromatic_bean_brown_669164_A4_Rectangle_25 {
+		opacity: 1;
+		fill: url(#aromatic_bean_brown_669164_A4_Rectangle_26_pattern);
+	}
+	.aromatic_bean_brown_669164_A4_Rectangle_25 {
+		position: absolute;
+		overflow: visible;
+		width: 156.792px;
+		height: 149.209px;
+		left: 1479.104px;
+		top: 162.896px;
+		transform: rotate(-38deg);
+		transform-origin: left;
+	}
+	#martina {
+		opacity: 1;
+		fill: url(#martina_A4_Ellipse_2_pattern);
+		stroke: rgb(112, 112, 112);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.martina {
+		position: absolute;
+		overflow: visible;
+		width: 120px;
+		height: 120px;
+		left: 864px;
+		top: 440px;
+	}
+</style>
+</head>
+<body>
+<div id="Coffee_shop">
+	<div id="Group_7">
+		<svg class="Base">
+			<rect id="Base" rx="0" ry="0" x="0" y="0" width="1920.5" height="70">
+			</rect>
+		</svg>
+		<svg viewBox="-6160 0 34.573 25" class="Menu">
+			<path id="Menu" d="M -6160 25 L -6160 21.42778205871582 L -6138.390625 21.42778205871582 L -6138.390625 25 L -6160 25 Z M -6160 14.28610801696777 L -6160 10.71389102935791 L -6125.4267578125 10.71389102935791 L -6125.4267578125 14.28610801696777 L -6160 14.28610801696777 Z M -6160 3.572217226028442 L -6160 0 L -6125.4267578125 0 L -6125.4267578125 3.572217226028442 L -6160 3.572217226028442 Z">
+			</path>
+		</svg>
+	</div>
+	<div id="Group_6">
+		<svg class="Base_A4_Rectangle_2">
+			<rect id="Base_A4_Rectangle_2" rx="0" ry="0" x="0" y="0" width="1913" height="70">
+			</rect>
+		</svg>
+		<div id="Group_5">
+			<div id="Instagram">
+				<svg viewBox="0 0 40.445 40.445" class="Path_3">
+					<path id="Path_3" d="M 20.22235107421875 3.595084667205811 C 25.61497688293457 3.595084667205811 26.28905487060547 3.595084667205811 28.31129264831543 3.819777488708496 C 30.33352661132812 3.819777488708496 31.45699119567871 4.269163131713867 32.13106918334961 4.493855953216553 C 33.02983856201172 4.943241596221924 33.70391845703125 5.392627239227295 34.37799835205078 6.066705703735352 C 35.05207443237305 6.74078369140625 35.50146102905273 7.414862632751465 35.95084762573242 8.313632965087891 C 36.17554092407227 8.987711906433105 36.62492370605469 10.11117553710938 36.62492370605469 12.1334114074707 C 36.62492370605469 14.15564632415771 36.84961700439453 14.82972526550293 36.84961700439453 20.22235107421875 C 36.84961700439453 25.61497688293457 36.84961700439453 26.28905487060547 36.62492370605469 28.31129264831543 C 36.62492370605469 30.33352661132812 36.17553329467773 31.45699119567871 35.95084381103516 32.13106918334961 C 35.50146102905273 33.02983856201172 35.05207443237305 33.70391845703125 34.37799453735352 34.37799835205078 C 33.70391845703125 35.05207443237305 33.02983856201172 35.50146102905273 32.13106536865234 35.95084762573242 C 31.45698928833008 36.17554092407227 30.33352470397949 36.62492370605469 28.3112907409668 36.62492370605469 C 26.28905487060547 36.62492370605469 25.61497688293457 36.84961700439453 20.22235107421875 36.84961700439453 C 14.82972431182861 36.84961700439453 14.15564632415771 36.84961700439453 12.1334114074707 36.62492370605469 C 10.11117553710938 36.62492370605469 8.987711906433105 36.17553329467773 8.313632965087891 35.95084381103516 C 7.414862155914307 35.50146102905273 6.74078369140625 35.05207443237305 6.066705703735352 34.37799453735352 C 5.392627239227295 33.70391845703125 4.943241596221924 33.02983856201172 4.493855953216553 32.13106536865234 C 4.269163131713867 31.45698928833008 3.819777488708496 30.33352470397949 3.819777488708496 28.3112907409668 C 3.819777488708496 26.28905487060547 3.595084667205811 25.61497688293457 3.595084667205811 20.22235107421875 C 3.595084667205811 14.82972431182861 3.595084667205811 14.15564632415771 3.819777488708496 12.1334114074707 C 3.819777488708496 10.11117553710938 4.269163131713867 8.987711906433105 4.493855953216553 8.313632965087891 C 4.943241596221924 7.414862155914307 5.392627239227295 6.74078369140625 6.066705703735352 6.066705703735352 C 6.74078369140625 5.167933940887451 7.414862155914307 4.71854829788208 8.313632965087891 4.493855953216553 C 8.987711906433105 4.269163131713867 10.11117553710938 3.819777488708496 12.1334114074707 3.819777488708496 C 14.15564632415771 3.595084667205811 14.82972431182861 3.595084667205811 20.22235107421875 3.595084667205811 M 20.22235107421875 0 C 14.82972431182861 0 13.93095207214355 0 11.90871906280518 0.2246927917003632 C 9.66179084777832 0.2246927917003632 8.313633918762207 0.6740784049034119 6.965476512908936 1.123463988304138 C 5.61732006072998 1.572849631309509 4.493855953216553 2.246927976608276 3.370391845703125 3.370391845703125 C 2.246927976608276 4.493855953216553 1.572849631309509 5.61732006072998 1.123463988304138 6.965476036071777 C 0.4493855834007263 8.313632965087891 0.2246927917003632 9.66179084777832 0.2246927917003632 11.90871906280518 C 0 13.93095207214355 0 14.82972431182861 0 20.22235107421875 C 0 25.61497688293457 0 26.51374816894531 0.2246927917003632 28.53598403930664 C 0.2246927917003632 30.78291130065918 0.6740784049034119 32.13106918334961 1.123463988304138 33.47922515869141 C 1.572849631309509 34.8273811340332 2.246927976608276 35.95084762573242 3.370391845703125 37.07431030273438 C 4.493855953216553 38.19777679443359 5.61732006072998 38.87184906005859 6.965476036071777 39.32123947143555 C 8.313632965087891 39.77062606811523 9.66179084777832 40.22000885009766 11.90871906280518 40.22000885009766 C 13.93095207214355 40.4447021484375 14.82972431182861 40.4447021484375 20.22235107421875 40.4447021484375 C 25.61497688293457 40.4447021484375 26.51374816894531 40.4447021484375 28.53598403930664 40.22000885009766 C 30.78291130065918 40.22000885009766 32.13106918334961 39.77062225341797 33.47922515869141 39.32123947143555 C 34.8273811340332 38.87184906005859 35.95084762573242 38.19777679443359 37.07431030273438 37.07431030273438 C 38.19777679443359 35.95084762573242 38.87184906005859 34.8273811340332 39.32123947143555 33.47922515869141 C 39.77062606811523 32.13106536865234 40.22000885009766 30.78291130065918 40.22000885009766 28.53598403930664 C 40.22000885009766 26.28905487060547 40.4447021484375 25.61497688293457 40.4447021484375 20.22235107421875 C 40.4447021484375 14.82972431182861 40.4447021484375 13.93095207214355 40.22000885009766 11.90871906280518 C 40.22000885009766 9.66179084777832 39.77062225341797 8.313633918762207 39.32123947143555 6.965476512908936 C 38.87184906005859 5.61732006072998 38.19777679443359 4.493855953216553 37.07431030273438 3.370392322540283 C 35.95084762573242 2.246928215026855 34.8273811340332 1.572849750518799 33.47922515869141 1.123464226722717 C 32.13106536865234 0.6740787029266357 30.78291130065918 0.2246930450201035 28.53598403930664 0.2246930450201035 C 26.51374816894531 0 25.61497688293457 0 20.22235107421875 0 M 20.22235107421875 9.886483192443848 C 14.38033866882324 9.886483192443848 9.886483192443848 14.38033866882324 9.886483192443848 20.22235107421875 C 9.886483192443848 26.06436538696289 14.60503101348877 30.55821990966797 20.22235107421875 30.55821990966797 C 26.06436538696289 30.55821990966797 30.55821990966797 25.83967018127441 30.55821990966797 20.22235107421875 C 30.55821990966797 14.60503101348877 26.06436538696289 9.886483192443848 20.22235107421875 9.886483192443848 M 20.22235107421875 26.963134765625 C 16.40257453918457 26.963134765625 13.4815673828125 24.04212951660156 13.4815673828125 20.22235107421875 C 13.4815673828125 16.40257453918457 16.40257453918457 13.4815673828125 20.22235107421875 13.4815673828125 C 24.04212951660156 13.4815673828125 26.963134765625 16.40257453918457 26.963134765625 20.22235107421875 C 26.963134765625 24.04212951660156 24.04212951660156 26.963134765625 20.22235107421875 26.963134765625 M 31.00760650634766 6.965476036071777 C 29.65944862365723 6.965476036071777 28.53598403930664 8.088940620422363 28.53598403930664 9.43709659576416 C 28.53598403930664 10.78525352478027 29.65944862365723 11.90871810913086 31.00760650634766 11.90871810913086 C 32.35576248168945 11.90871810913086 33.47922515869141 10.78525352478027 33.47922515869141 9.43709659576416 C 33.47922515869141 8.088940620422363 32.35576248168945 6.965476036071777 31.00760650634766 6.965476036071777">
+					</path>
+				</svg>
+			</div>
+			<div id="Facebook">
+				<svg viewBox="80 0 13.014 24.92" class="Path_1">
+					<path id="Path_1" d="M 88.44522094726562 24.9202880859375 L 88.44522094726562 13.56771278381348 L 92.32170104980469 13.56771278381348 L 92.87550354003906 9.13744068145752 L 88.44522094726562 9.13744068145752 L 88.44522094726562 6.368518829345703 C 88.44522094726562 5.122504234313965 88.86056518554688 4.153382301330566 90.66036987304688 4.153382301330566 L 93.01394653320312 4.153382301330566 L 93.01394653320312 0.1384460479021072 C 92.46014404296875 0.1384460479021072 91.07568359375 0 89.55278015136719 0 C 86.23007202148438 0 83.87649536132812 2.076690673828125 83.87649536132812 5.814733505249023 L 83.87649536132812 9.137439727783203 L 80 9.137439727783203 L 80 13.56771278381348 L 83.87649536132812 13.56771278381348 L 83.87649536132812 24.9202880859375 L 88.44522094726562 24.9202880859375 Z">
+					</path>
+				</svg>
+			</div>
+			<div id="Twitter">
+				<svg viewBox="38 2 31.721 25.729" class="Path_2">
+					<path id="Path_2" d="M 48.04506301879883 27.72945213317871 C 60.02864456176758 27.72945213317871 66.54911804199219 17.86062049865723 66.54911804199219 9.225395202636719 C 66.54911804199219 8.87293815612793 66.54911804199219 8.696706771850586 66.54911804199219 8.344249725341797 C 67.78273010253906 7.463103771209717 68.84010314941406 6.229500293731689 69.72123718261719 4.995895385742188 C 68.48764038085938 5.524583339691162 67.2540283203125 5.877041339874268 66.02043151855469 6.053270816802979 C 67.43026733398438 5.172124862670898 68.31141662597656 3.938520431518555 68.84010314941406 2.528687953948975 C 67.60649108886719 3.233603954315186 66.19667053222656 3.762290954589844 64.78683471679688 4.114749908447266 C 63.55322647094727 2.704916477203369 61.79092788696289 2 60.02864456176758 2 C 56.50406265258789 2 53.5081672668457 4.995894908905029 53.5081672668457 8.520477294921875 C 53.5081672668457 9.049165725708008 53.5081672668457 9.577852249145508 53.68439102172852 9.93031120300293 C 48.22129440307617 9.577852249145508 43.46310043334961 7.110644817352295 40.29098129272461 3.057374477386475 C 39.76229476928711 3.938519954681396 39.40983200073242 5.17212438583374 39.40983200073242 6.405727863311768 C 39.40983200073242 8.696706771850586 40.64343643188477 10.63522720336914 42.22949600219727 11.86883163452148 C 41.17212295532227 11.86883163452148 40.11474990844727 11.51637268066406 39.23360061645508 10.98768615722656 C 39.23360061645508 10.98768615722656 39.23360061645508 10.98768615722656 39.23360061645508 10.98768615722656 C 39.23360061645508 14.15980911254883 41.52457809448242 16.80324363708496 44.52048110961914 17.33193397521973 C 43.99178695678711 17.50816345214844 43.46310043334961 17.50816345214844 42.75818252563477 17.50816345214844 C 42.40571975708008 17.50816345214844 41.87703323364258 17.50816345214844 41.52457809448242 17.33193397521973 C 42.40571975708008 19.97537040710449 44.69670486450195 21.7376594543457 47.69260025024414 21.91388893127441 C 45.4016227722168 23.67617988586426 42.58195114135742 24.73355674743652 39.58606338500977 24.73355674743652 C 39.05737686157227 24.73355674743652 38.52869033813477 24.73355674743652 37.99999618530273 24.55732536315918 C 40.81966781616211 26.67207717895508 44.3442497253418 27.72945213317871 48.04506301879883 27.72945213317871">
+					</path>
+				</svg>
+			</div>
+			<div id="Web">
+				<svg viewBox="0 0 33.445 33.445" class="Path_4">
+					<path id="Path_4" d="M 5.016705513000488 5.016705513000488 C 8.082469940185547 1.672235250473022 11.98435211181641 0 16.72235107421875 0 C 21.46034812927246 0 25.36223411560059 1.672235250473022 28.4279956817627 5.016705513000488 C 31.7724666595459 8.082469940185547 33.4447021484375 11.98435211181641 33.4447021484375 16.72235107421875 C 33.4447021484375 21.46034812927246 31.7724666595459 25.36223411560059 28.4279956817627 28.4279956817627 C 25.36223411560059 31.7724666595459 21.46034812927246 33.4447021484375 16.72235107421875 33.4447021484375 C 11.98435211181641 33.4447021484375 8.082469940185547 31.7724666595459 5.016705989837646 28.4279956817627 C 1.950941801071167 25.08352661132812 0 21.46034812927246 0 16.72235107421875 C 0 11.98435211181641 1.672235250473022 8.082469940185547 5.016705513000488 5.016705513000488 Z M 18.95199775695801 30.1002311706543 C 20.06682205200195 30.1002311706543 21.46035194396973 29.26411437988281 23.1325855255127 27.59188079833984 C 24.24740791320801 25.64093589782715 25.08352661132812 23.68999862670898 25.08352661132812 21.73905563354492 C 25.08352661132812 20.34552764892578 24.52611541748047 19.23070526123047 23.68999862670898 18.39458847045898 C 22.57517623901367 17.27976036071777 21.46034812927246 16.72235107421875 20.06682205200195 16.72235107421875 L 17.27976036071777 16.72235107421875 C 16.44364547729492 16.72235107421875 15.60752773284912 16.44364547729492 14.77141094207764 16.16493988037109 C 14.21399784088135 15.60752773284912 13.93529319763184 15.05011558532715 13.93529319763184 14.21399784088135 C 13.93529319763184 13.65658664703369 14.21399784088135 13.37787914276123 14.49270343780518 13.09917449951172 C 14.77141094207764 12.82046794891357 15.32882213592529 12.54176330566406 15.60752773284912 12.54176330566406 C 15.88623332977295 12.54176330566406 16.72235107421875 12.82046794891357 17.00105667114258 13.37788200378418 C 17.55846977233887 13.65658664703369 17.8371753692627 13.93529319763184 18.11587905883789 13.93529319763184 C 18.39458656311035 13.93529319763184 18.95199775695801 13.93529319763184 19.23070526123047 13.65658664703369 C 19.5094108581543 13.37788200378418 19.5094108581543 12.82046794891357 19.5094108581543 12.54176330566406 C 19.5094108581543 11.70564556121826 18.95199775695801 10.59082221984863 18.11587905883789 9.754705429077148 C 18.95199775695801 8.082469940185547 19.5094108581543 6.410233974456787 19.5094108581543 4.459293842315674 C 19.5094108581543 4.180587768554688 19.23070526123047 3.90188193321228 18.95199775695801 3.90188193321228 C 18.11587905883789 3.623175859451294 17.27976036071777 3.344470500946045 16.72235107421875 3.344470500946045 C 13.65658664703369 3.623175859451294 11.42693996429443 4.180587768554688 9.475998878479004 5.574117183685303 C 7.803763866424561 6.967646598815918 6.967646598815918 8.918587684631348 6.967646598815918 11.14823436737061 C 6.967646598815918 13.37788200378418 7.803763866424561 15.05011558532715 9.197293281555176 16.44364547729492 C 10.59082221984863 17.8371753692627 12.54176330566406 18.67329406738281 14.49270343780518 18.67329406738281 L 14.49270343780518 18.67329406738281 C 14.49270343780518 18.95199775695801 14.49270343780518 19.5094108581543 14.49270343780518 19.78811454772949 C 14.49270343780518 20.90294075012207 14.77141094207764 21.73905563354492 15.60752773284912 22.57517623901367 C 16.16493797302246 23.41129302978516 17.00105667114258 23.96870422363281 18.11587905883789 24.24741172790527 L 18.11587905883789 29.26411819458008 C 18.11587905883789 29.54282379150391 18.11587905883789 29.54282379150391 18.39458656311035 29.82153129577637 C 18.67329216003418 30.1002311706543 18.67329216003418 30.1002311706543 18.95199775695801 30.1002311706543 Z">
+					</path>
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div id="Braw_Brew">
+		<span>Braw Brew</span>
+	</div>
+	<svg class="Video">
+		<pattern elementId="Video_A4_Rectangle_4" id="Video_A4_Rectangle_4_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" width="100%" height="100%" href="Video_A4_Rectangle_4_pattern.png" xlink:href="Video_A4_Rectangle_4_pattern.png"></image>
+		</pattern>
+		<rect id="Video" rx="0" ry="0" x="0" y="0" width="690" height="620.215">
+		</rect>
+	</svg>
+	<div id="Gave_me_the_shakes__">
+		<span>Gave me the shakes! </span>
+	</div>
+	<div id="Textbox_Filled">
+		<svg class="Rectangle_681">
+			<rect id="Rectangle_681" rx="4" ry="4" x="0" y="0" width="717.849" height="332.451">
+			</rect>
+		</svg>
+	</div>
+	<div id="I_lost_my_job_because_of_this_">
+		<span>I lost my job because of this coffee! Treating patients was a nightmare with the shakes. <br/>It’s far too strong. I didn’t know whether to drink it <br/>or use it to fuel my car. <br/><br/>Lovely atmosphere though and pleasant staff. Hence the two stars</span>
+	</div>
+	<div id="Overall_rating">
+		<span>Overall rating</span>
+	</div>
+	<svg class="aromatic_bean_brown_669164">
+		<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_7" id="aromatic_bean_brown_669164_A4_Rectangle_7_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_7_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_7_pattern.png"></image>
+		</pattern>
+		<rect id="aromatic_bean_brown_669164" rx="0" ry="0" x="0" y="0" width="131" height="87">
+		</rect>
+	</svg>
+	<div id="Backward_arrow">
+		<svg viewBox="0 0 52.5 52.5" class="Path_10">
+			<path id="Path_10" d="M 26.25 0 L 21.47727394104004 4.772727489471436 L 39.54545593261719 22.84090995788574 L 0 22.84090995788574 L 0 29.65909194946289 L 39.54545593261719 29.65909194946289 L 21.47727394104004 47.72727584838867 L 26.25 52.5 L 52.5 26.25 L 26.25 0 Z">
+			</path>
+		</svg>
+	</div>
+	<div id="Results">
+		<span>Results</span>
+	</div>
+	<div id="Textbox_Filled_A4_Group_10">
+		<svg class="Rectangle_681_A4_Rectangle_8">
+			<rect id="Rectangle_681_A4_Rectangle_8" rx="4" ry="4" x="0" y="0" width="485.396" height="224.797">
+			</rect>
+		</svg>
+	</div>
+	<div id="Coffee_Quality_Price_Atmospher">
+		<span>Coffee Quality<br/>Price<br/>Atmosphere<br/><br/></span>
+	</div>
+	<div id="aromatic_bean_brown_669164_A4_SymbolInstance_1">
+		<svg class="aromatic_bean_brown_669164_A4_Rectangle_9">
+			<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_10" id="aromatic_bean_brown_669164_A4_Rectangle_10_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_10_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_10_pattern.png"></image>
+			</pattern>
+			<rect id="aromatic_bean_brown_669164_A4_Rectangle_9" rx="0" ry="0" x="0" y="0" width="94" height="62">
+			</rect>
+		</svg>
+	</div>
+	<div id="aromatic_bean_brown_669164_A4_SymbolInstance_2">
+		<svg class="aromatic_bean_brown_669164_A4_Rectangle_11">
+			<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_12" id="aromatic_bean_brown_669164_A4_Rectangle_12_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_12_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_12_pattern.png"></image>
+			</pattern>
+			<rect id="aromatic_bean_brown_669164_A4_Rectangle_11" rx="0" ry="0" x="0" y="0" width="94" height="62">
+			</rect>
+		</svg>
+	</div>
+	<div id="aromatic_bean_brown_669164_A4_SymbolInstance_3">
+		<svg class="aromatic_bean_brown_669164_A4_Rectangle_13">
+			<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_14" id="aromatic_bean_brown_669164_A4_Rectangle_14_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_14_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_14_pattern.png"></image>
+			</pattern>
+			<rect id="aromatic_bean_brown_669164_A4_Rectangle_13" rx="0" ry="0" x="0" y="0" width="94" height="62">
+			</rect>
+		</svg>
+	</div>
+	<div id="aromatic_bean_brown_669164_A4_SymbolInstance_4">
+		<svg class="aromatic_bean_brown_669164_A4_Rectangle_15">
+			<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_16" id="aromatic_bean_brown_669164_A4_Rectangle_16_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_16_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_16_pattern.png"></image>
+			</pattern>
+			<rect id="aromatic_bean_brown_669164_A4_Rectangle_15" rx="0" ry="0" x="0" y="0" width="94" height="62">
+			</rect>
+		</svg>
+	</div>
+	<div id="aromatic_bean_brown_669164_A4_SymbolInstance_5">
+		<svg class="aromatic_bean_brown_669164_A4_Rectangle_17">
+			<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_18" id="aromatic_bean_brown_669164_A4_Rectangle_18_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_18_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_18_pattern.png"></image>
+			</pattern>
+			<rect id="aromatic_bean_brown_669164_A4_Rectangle_17" rx="0" ry="0" x="0" y="0" width="94" height="62">
+			</rect>
+		</svg>
+	</div>
+	<div id="aromatic_bean_brown_669164_A4_SymbolInstance_6">
+		<svg class="aromatic_bean_brown_669164_A4_Rectangle_19">
+			<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_20" id="aromatic_bean_brown_669164_A4_Rectangle_20_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_20_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_20_pattern.png"></image>
+			</pattern>
+			<rect id="aromatic_bean_brown_669164_A4_Rectangle_19" rx="0" ry="0" x="0" y="0" width="94" height="62">
+			</rect>
+		</svg>
+	</div>
+	<div id="aromatic_bean_brown_669164_A4_SymbolInstance_7">
+		<svg class="aromatic_bean_brown_669164_A4_Rectangle_21">
+			<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_22" id="aromatic_bean_brown_669164_A4_Rectangle_22_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_22_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_22_pattern.png"></image>
+			</pattern>
+			<rect id="aromatic_bean_brown_669164_A4_Rectangle_21" rx="0" ry="0" x="0" y="0" width="94" height="62">
+			</rect>
+		</svg>
+	</div>
+	<div id="aromatic_bean_brown_669164_A4_SymbolInstance_8">
+		<svg class="aromatic_bean_brown_669164_A4_Rectangle_23">
+			<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_24" id="aromatic_bean_brown_669164_A4_Rectangle_24_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_24_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_24_pattern.png"></image>
+			</pattern>
+			<rect id="aromatic_bean_brown_669164_A4_Rectangle_23" rx="0" ry="0" x="0" y="0" width="94" height="62">
+			</rect>
+		</svg>
+	</div>
+	<svg class="aromatic_bean_brown_669164_A4_Rectangle_25">
+		<pattern elementId="aromatic_bean_brown_669164_A4_Rectangle_26" id="aromatic_bean_brown_669164_A4_Rectangle_26_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" width="100%" height="100%" href="aromatic_bean_brown_669164_A4_Rectangle_26_pattern.png" xlink:href="aromatic_bean_brown_669164_A4_Rectangle_26_pattern.png"></image>
+		</pattern>
+		<rect id="aromatic_bean_brown_669164_A4_Rectangle_25" rx="0" ry="0" x="0" y="0" width="131" height="87">
+		</rect>
+	</svg>
+	<svg class="martina">
+		<pattern elementId="martina_A4_Ellipse_2" id="martina_A4_Ellipse_2_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" width="100%" height="100%" href="martina_A4_Ellipse_2_pattern.png" xlink:href="martina_A4_Ellipse_2_pattern.png"></image>
+		</pattern>
+		<ellipse id="martina" rx="60" ry="60" cx="60" cy="60">
+		</ellipse>
+	</svg>
+</div>
+</body>
+</html>

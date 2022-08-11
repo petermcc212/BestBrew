@@ -1,0 +1,66 @@
+{% extends 'bestbrew/base.html' %}
+{% load staticfiles %} 
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'nav/login.css' %}"/>
+
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   </head>
+   <body>
+      {% block body_block %}
+      <!--HEADER -->
+      <div class="page-header" align="center">
+         <h1><strong>BestBrew Login</strong></h1>
+      </div>
+      <!--PLEASE SIGN IN TEXT -->
+      <body class="text-center">
+         <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+               <h1><i class="fa fa-key icon"></i></h1>
+               <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+               <!--LOGIN FORM -->                           
+               <form class="form-signin" id="login_form" role="form" action="{% url "login" %}" method="post" accept-charset="utf-8">
+               <div class="form-group">
+                  <!--USERNAME BOX --> 
+                  <input type="text" placeholder="Username" name="username" class="form-control" required="true">
+                  <!--PASSWORD BOX --> 
+                  <div class="form-group">
+                     <input type="password" placeholder="Password" name="password" class="form-control" required="true">
+                     <!--CHECK BOX --> 
+                     <div class="checkbox mb-3">
+                        <label>
+                        <input value="remember-me" type="checkbox"> Remember me
+                        </label>
+                     </div>
+                     <!--SIGN IN BUTTON --> 
+                     <input type="submit" class="btn btn-lg btn-primary btn-block" name="submit" value="Sign in" />
+                     <p class="mt-5 mb-3 text-muted">BestBrew© 2019</p>
+                     {% csrf_token %}
+                     </form>
+                  </div>
+               </div>
+   </body>
+   <!--REGISTER --> 
+   <div class="form-group">
+   <p class="text-center">Don't have account? <a href="{% url 'register' %}" id="signup">Sign up here</a></p>
+   </div>
+   </form>
+   </div>
+   </div>
+   </div> 
+   {% endblock %}   
+   </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'nav/style.css'%}" />
+<html>
+   <head lang="en">
+      <meta charset="UTF-8" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+      <script src="{% static "js/basejavascript.js" %}"></script>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+      <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet type="text/css" href="{% static 'nav/style.css' %}"/>
+      <link rel="stylesheet type="text/css" href="{% static 'nav/sidebar.css' %}"/>
+      <link rel="stylesheet" href="{% static 'nav/home.css' %}">
+      {% block nav %}
+      <nav class="navbar">
+         <div class="container-fluid">
+            <!-- Header -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+               </button>
+               <a class="navbar-brand" href="{% url 'index' %}">BestBrew</a>
+            </div>
+            <!-- individual items-->
+            <div class="collapse navbar-collapse" id="topNavBar">
+               <ul class="nav navbar-nav">
+                  <li class="">
+                     <a href="#" class="button" id="menu-toggle"Toggle menu>
+                     <span class="fa fa-coffee" aria-hidden="true"></span>&nbsp;Menu
+                     </a>
+                  </li>
+               </ul>
+               </form>
+               <ul class="nav navbar navbar-right">
+                  <li class="">
+                     {% if user.is_authenticated %}
+                     <a href="{% url 'personalised' %}" class="button" id="menu-toggle"Toggle menu>
+                     <span style="color:white"class="far fa-user" aria-hidden="true"></span>&nbsp;Your profile
+                     </a>
+                  </li>
+                  {% else %}
+                  <a href="{% url 'login' %}" class="button" id="menu-toggle"Toggle menu>
+                  <span style="color:white"class="far fa-user" aria-hidden="true"></span>&nbsp;Log in 
+                  </a>
+                  {% endif %}
+               </ul>
+            </div>
+         </div>
+      </nav>
+      {% endblock %}
+      {% block head %}
+      <title>Base</title>
+      {% endblock %}
+   </head>
+   <body>
+      <div>
+         {% block sidebar_block %}
+         <div id="wrapper">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+               <ul class="sidebar-nav">
+                  <li><a href="{% url 'index' %}">Home</a></li>
+                  <li><a href="{% url 'browse' %}">Browse</a></li>
+                  <li><a href="{% url 'trending' %}">Trending</a></li>
+                  <li><a href="{% url 'coffee_shop' %}">Coffee Shop</a></li>
+                  <li><a href="{% url 'blog/view' %}">Blog</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a href="{% url 'personalised' %}">Your profile</a></li>
+                  <li><a href="{% url 'logout' %}">Log out</a></li>
+                  {% else %}
+                  <li><a href="{% url 'login' %}">Sign in </a></li>
+                  <li><a href="{% url 'register' %}">Register </a></li>
+                  {% endif %}
+               </ul>
+            </div>
+         </div>
+         {% endblock %}
+         <div>
+            <!-- Page content -->
+            {% block body_block %}
+            {% endblock %}
+         </div>
+         <hr />
+      </div>
+   </body>
+   <!-- Below is the code for the footer-->
+   <footer>
+      <div class= "navbar navbar-fixed-bottom" role="navigation">
+      <div align="center" class="socialbtns">
+         <p></p>
+         <ul>
+            <li><a href="#" class="fa fa-lg fa-facebook"></a></li>
+            <li><a href="#" class="fa fa-lg fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-lg fa-google-plus"></a></li>
+            <li><a href="#" class="fa fa-lg fa-github"></a></li>
+            <li><a href="#" class="fa fa-lg fa-pinterest"></a></li>
+            <li><a href="#" class="fa fa-lg fa-linkedin"></a></li>
+            <li><a href="#" class="fa fa-lg fa-instagram"></a></li>
+            <li><a href="#" class="fa fa-lg fa-youtube"></a></li>
+         </ul>
+      </div>
+   </footer>
+</html>

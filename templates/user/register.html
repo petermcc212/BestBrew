@@ -1,0 +1,73 @@
+{% extends 'bestbrew/base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'nav/login.css' %}"/>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Document</title>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-5 mx-auto">
+               <div id="first">
+                  <div class="myform form ">
+                     <div class="logo mb-3">
+                        <div class="col-md-12 text-center">
+                           <h1>Login</h1>
+                        </div>
+                     </div>
+                     {% block body_block %}
+                     <div class="page-header" align="center">
+                        <h1><strong>BestBrew Registration</strong></h1>
+                     </div>
+                     {% if registered %}
+                     <div class="col-xs-12" align="center">
+                        <strong>
+                           <h2>Thank you for registering with BestBrew!</h2>
+                        </strong>
+                        <p>
+                        <h3><a href="{% url 'index' %}">Return to the homepage.</a></h3>
+                        <br/>
+                        {% else %}
+                        <form id="user_form" method="post" action="{% url 'register' %}"
+                           enctype="multipart/form-data">
+                     </div>
+                     <!-- Display each form -->
+                     {% csrf_token %}
+                     <div class="row">
+                     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                     <h2>Sign Up Here <small>and you can begin contributing to the BestBrew Community.</small></h2><p>
+                     {{ user_form|crispy }}
+                     {{ profile_form|crispy }}
+                     <!-- Provide a button to click to submit the form. -->
+                     <input type="submit" class="btn btn-primary" name="submit" value="Register" />
+                     <div class="col-xs-12" align="center">
+                     By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+                     </div>
+                     </form>
+                     {% endif %}
+                     </div>
+                     </div>
+                     {% endblock %}
+                  </div>
+               </div>
+            </div>
+   </body>
+   </div>
+   </div>
+</html>
+forms.py

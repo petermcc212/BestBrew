@@ -1,0 +1,35 @@
+{% extends 'bestbrew/base.html' %}
+{% load staticfiles %} 
+{% load crispy_forms_tags %}
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+
+{% block body_block %}
+<!--HEADER -->
+<div class="page-header" align="center">
+   <h1><strong>Add a Coffee Shop</strong></h1>
+</div>
+<!-- HOUSE IMAGE -->
+<div class="row">
+   <div class="col-sm-4 col-sm-offset-4">
+      <div class="panel-body text-center">
+         <h1><span class="glyphicon glyphicon-home"></span></h1>
+      </div>
+   </div>
+   <!--FORM -->
+   <div class="col-sm-4 col-sm-offset-4">
+      <form method="post" action="{% url 'coffeeShop_create_view' %}" enctype="multipart/form-data">
+         {% csrf_token %}
+         {{ form|crispy }}
+         <!-- BUTTON -->   
+         <input type="submit" class="btn btn-lg btn-primary btn-block" value="Save" />
+      </form>
+   </div>
+</div>
+</div>
+</div>
+{% endblock %} 
+</body>
+</html>  
